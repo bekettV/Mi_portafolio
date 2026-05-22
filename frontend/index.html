@@ -1,68 +1,347 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Enmanuel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/portafolio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enmanuel Henríquez | Ingeniero en Sistemas & UX/UI</title>
+    <meta name="description" content="Portafolio de Enmanuel Henríquez, Ingeniero en Sistemas enfocado en innovación tecnológica, UX/UI, análisis de requerimientos y QA.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/portafolio.css">
 </head>
 <body>
 
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#about">Sobre mí</a>
-    <a href="#skills">Habilidades</a>
-    <a href="#projects">Proyectos</a>
-  </nav>
-
-  <header>
-    <h1>Hola, soy Enmanuel Henríquez 👋</h1>
-    <p>Desarrollador Full Stack en proceso 🚀</p>
-  </header>
-
-  <section id="about">
-    <h2>Sobre mí</h2>
-    <p class="about">
-      Soy un apasionado por la tecnología y el desarrollo web. Actualmente estoy en el camino de convertirme en un desarrollador Full Stack, aprendiendo tecnologías modernas como React, backend con Python y bases de datos como PostgreSQL.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>Habilidades</h2>
-    <div class="skills">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">React</div>
-      <div class="skill">Python</div>
-      <div class="skill">SQL</div>
-      <div class="skill">PostgreSQL</div>
-      <div class="skill">SQL Server</div>
-      <div class="skill">Java</div>
-      <div class="skill">Primefaces</div>
-      <div class="skill">PHP</div>
-      <div class="skill">Laravel</div>
+    <!-- Ambient Glow Blobs -->
+    <div class="ambient-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
     </div>
-  </section>
 
-  <section id="projects">
-    <h2>Proyectos</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Portafolio Web</h3>
-        <p>Un sitio personal para mostrar mis habilidades.</p>
-      </div>
-      <div class="project">
-        <h3>App Full Stack</h3>
-        <p>Aplicación con React + Backend + Base de datos.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Interactive Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Subtle Grid Overlay -->
+    <div class="cyber-grid-overlay"></div>
 
-  <footer>
-    <p>© 2026 Enmanuel - Todos los derechos reservados</p>
-  </footer>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">E<span class="text-gradient">H.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
+                <li><a href="#experience" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+                <li><a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+                <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="lang-toggle" id="langToggleBtn" onclick="switchLanguage()">EN</button>
+                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/50375788942?text=Hola%20Enmanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" class="floating-wa" aria-label="WhatsApp Contact">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-wrapper reveal">
+                <div class="hero-content">
+                    <div class="hero-badge" data-es="<i class='fas fa-microchip'></i> Ingeniero en Sistemas & Innovador" data-en="<i class='fas fa-microchip'></i> System Engineer & Innovator">
+                        <i class="fas fa-microchip"></i> Ingeniero en Sistemas & Innovador
+                    </div>
+                    
+                    <h1 class="hero-name" data-es="ENMANUEL<br><span class='text-gradient'>HENRÍQUEZ</span>" data-en="ENMANUEL<br><span class='text-gradient'>HENRÍQUEZ</span>">
+                        ENMANUEL<br><span class="text-gradient">HENRÍQUEZ</span>
+                    </h1>
+                    
+                    <h2 data-es="Ingeniero en Sistemas | UX/UI | QA Tester" data-en="Systems Engineer | UX/UI | QA Tester">Ingeniero en Sistemas | UX/UI | QA Tester</h2>
+                    <p data-es="Profesional apasionado por la innovación tecnológica, la experiencia de usuario y el desarrollo de soluciones digitales modernas para instituciones y plataformas de alto impacto." data-en="Professional passionate about technological innovation, user experience, and developing modern digital solutions for high-impact systems and institutions.">Profesional apasionado por la innovación tecnológica, la experiencia de usuario y el desarrollo de soluciones digitales modernas para instituciones y plataformas de alto impacto.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary" data-es="<i class='fas fa-folder-open'></i> Ver Proyectos" data-en="<i class='fas fa-folder-open'></i> View Projects">
+                            <i class="fas fa-folder-open"></i> Ver Proyectos
+                        </a>
+                        <a href="#contact" class="btn btn-outline" data-es="<i class='fas fa-paper-plane'></i> Contactarme" data-en="<i class='fas fa-paper-plane'></i> Contact Me">
+                            <i class="fas fa-paper-plane"></i> Contactarme
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contenedor Foto Redonda Pequeña (Borde Celeste Sólido sin rotación) -->
+                <div class="hero-image-container">
+                    <div class="profile-card">
+                        <img src="img/enmanuelfoto.png" alt="Enmanuel Henríquez" class="profile-pic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-es="Transformación <span class='text-gradient'>Digital</span>" data-en="Digital <span class='text-gradient'>Transformation</span>">Transformación <span class="text-gradient">Digital</span></h2>
+                <p data-es="Mi enfoque profesional e hitos académicos." data-en="My professional focus and academic milestones.">Mi enfoque profesional e hitos académicos.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text glass-panel p-4 reveal" style="padding: 2.5rem;">
+                    <p data-es="Mi nombre es <strong>Enmanuel Alexander Henríquez Hernández</strong>. Me gradué de Ingeniería en Sistemas Informáticos en la Universidad de El Salvador el <strong>28 de abril de 2026</strong>." data-en="My name is <strong>Enmanuel Alexander Henríquez Hernández</strong>. I graduated with a degree in Systems Engineering from the University of El Salvador on <strong>April 28, 2026</strong>.">Mi nombre es <strong>Enmanuel Alexander Henríquez Hernández</strong>. Me gradué de Ingeniería en Sistemas Informáticos en la Universidad de El Salvador el <strong>28 de abril de 2026</strong>.</p>
+                    <p data-es="Aporto mi experiencia técnica en el <strong>Gobierno de El Salvador (Secretaría de Innovación)</strong> y proyectos nacionales de alto impacto. Mi enfoque abarca desde infraestructura tecnológica hasta interfaces centradas en el usuario." data-en="I contribute my technical expertise to the <strong>Government of El Salvador (Innovation Secretariat)</strong> and high-impact national projects. My focus ranges from tech infrastructure to user-centered interfaces.">Aporto mi experiencia técnica en el <strong>Gobierno de El Salvador (Secretaría de Innovación)</strong> y proyectos nacionales de alto impacto. Mi enfoque abarca desde infraestructura tecnológica hasta interfaces centradas en el usuario.</p>
+                    <p data-es="Combino un análisis de requerimientos riguroso con habilidades en QA, diseño UX/UI, administración de servidores y metodologías ágiles (Scrum) para garantizar soluciones integrales y escalables." data-en="I combine rigorous requirements analysis with skills in QA, UX/UI design, server administration, and agile methodologies (Scrum) to ensure comprehensive and scalable solutions.">Combino un análisis de requerimientos riguroso con habilidades en QA, diseño UX/UI, administración de servidores y metodologías ágiles (Scrum) para garantizar soluciones integrales y escalables.</p>
+                </div>
+                
+                <div class="about-stats reveal" style="transition-delay: 0.2s; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="stat-card glass-panel">
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>UX / UI</h3>
+                        <p data-es="Diseño centrado en el usuario." data-en="User-centered design.">Diseño centrado en el usuario.</p>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fas fa-bug"></i>
+                        <h3 data-es="QA & Testing" data-en="QA & Testing">QA & Testing</h3>
+                        <p data-es="Validación de software." data-en="Software validation.">Validación de software.</p>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 data-es="Ciberseguridad" data-en="Cybersecurity">Ciberseguridad</h3>
+                        <p data-es="Seguridad e Infraestructura." data-en="Security & Infrastructure.">Seguridad e Infraestructura.</p>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fas fa-server"></i>
+                        <h3 data-es="Servidores" data-en="Servers">Servidores</h3>
+                        <p data-es="Linux, Debian, Ubuntu." data-en="Linux, Debian, Ubuntu.">Linux, Debian, Ubuntu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-es="Trayectoria <span class='text-gradient'>Profesional</span>" data-en="Professional <span class='text-gradient'>Journey</span>">Trayectoria <span class="text-gradient">Profesional</span></h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-date" data-es="Septiembre 2025 — Actualidad" data-en="September 2025 — Present">Septiembre 2025 — Actualidad</span>
+                        <h3 data-es="Secretaría de Innovación de Presidencia" data-en="Secretariat of Presidential Innovation">Secretaría de Innovación de Presidencia</h3>
+                        <h4 data-es="Gobierno de El Salvador" data-en="Government of El Salvador">Gobierno de El Salvador</h4>
+                        <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem;" data-es="Analista de Requerimientos | UX/UI Designer | QA Tester | Team Leader" data-en="Requirements Analyst | UX/UI Designer | QA Tester | Team Leader">Analista de Requerimientos | UX/UI Designer | QA Tester | Team Leader</p>
+                        <ul>
+                            <li data-es="Levantamiento y análisis de requerimientos para plataformas de gobierno." data-en="Requirements gathering and analysis for government platforms.">Levantamiento y análisis de requerimientos para plataformas de gobierno.</li>
+                            <li data-es="Diseño UX/UI en Figma para sistemas nacionales (ej. Simple SV)." data-en="UX/UI design in Figma for national systems (e.g., Simple SV).">Diseño UX/UI en Figma para sistemas nacionales (ej. Simple SV).</li>
+                            <li data-es="Testing, QA y validación funcional de sistemas." data-en="Systems Testing, QA, and functional validation.">Testing, QA y validación funcional de sistemas.</li>
+                            <li data-es="Coordinación de equipos tecnológicos bajo metodologías Scrum." data-en="Technical team coordination using Scrum methodologies.">Coordinación de equipos tecnológicos bajo metodologías Scrum.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-date" data-es="Experiencia Previa" data-en="Previous Experience">Experiencia Previa</span>
+                        <h3 data-es="Centro de Estudios de Opinión Pública (CEOP)" data-en="Center for Public Opinion Studies (CEOP)">Centro de Estudios de Opinión Pública (CEOP)</h3>
+                        <h4 data-es="Soporte Técnico y Análisis de Datos" data-en="Tech Support & Data Analysis">Soporte Técnico y Análisis de Datos</h4>
+                        <ul>
+                            <li data-es="Gestión y análisis de datos utilizando SQL Server." data-en="Data management and analysis using SQL Server.">Gestión y análisis de datos utilizando SQL Server.</li>
+                            <li data-es="Investigación técnica y procesamiento masivo de información." data-en="Technical research and massive data processing.">Investigación técnica y procesamiento masivo de información.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-date" data-es="Experiencia Previa" data-en="Previous Experience">Experiencia Previa</span>
+                        <h3 data-es="Electrónica Hernández" data-en="Electrónica Hernández">Electrónica Hernández</h3>
+                        <h4 data-es="Técnico Informático y Soporte de Hardware" data-en="IT Technician & Hardware Support">Técnico Informático y Soporte de Hardware</h4>
+                        <ul>
+                            <li data-es="Diagnóstico y reparación de computadoras y hardware." data-en="Computer and hardware diagnostics and repair.">Diagnóstico y reparación de computadoras y hardware.</li>
+                            <li data-es="Soporte y configuración en entornos Linux y Windows." data-en="Support and configuration in Linux and Windows environments.">Soporte y configuración en entornos Linux y Windows.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-es="Stack <span class='text-gradient'>Tecnológico</span>" data-en="Tech <span class='text-gradient'>Stack</span>">Stack <span class="text-gradient">Tecnológico</span></h2>
+            </div>
+
+            <div class="skills-container reveal">
+                <div class="skill-tag"><i class="fab fa-figma"></i> Figma Avanzado</div>
+                <div class="skill-tag"><i class="fas fa-object-group"></i> UX/UI Design</div>
+                <div class="skill-tag"><i class="fas fa-vial"></i> QA Testing & Validación</div>
+                <div class="skill-tag" data-es="<i class='fas fa-clipboard-list'></i> Análisis de Requerimientos" data-en="<i class='fas fa-clipboard-list'></i> Requirements Analysis"><i class="fas fa-clipboard-list"></i> Análisis de Requerimientos</div>
+                
+                <div class="skill-tag"><i class="fab fa-react"></i> React</div>
+                <div class="skill-tag"><i class="fab fa-java"></i> Java</div>
+                <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-tag"><i class="fas fa-database"></i> PostgreSQL & SQL Server</div>
+                
+                <div class="skill-tag"><i class="fas fa-shield-alt"></i> Ciberseguridad</div>
+                <div class="skill-tag"><i class="fas fa-server"></i> Admin de Servidores</div>
+                <div class="skill-tag"><i class="fas fa-network-wired"></i> Infraestructura & Redes</div>
+                <div class="skill-tag"><i class="fab fa-linux"></i> Linux / Debian / Ubuntu</div>
+                <div class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                
+                <div class="skill-tag" data-es="<i class='fas fa-users'></i> Liderazgo de Equipo" data-en="<i class='fas fa-users'></i> Team Leadership"><i class="fas fa-users"></i> Liderazgo de Equipo</div>
+                <div class="skill-tag"><i class="fas fa-sync"></i> Scrum & Agile</div>
+            </div>
+
+            <div class="mt-5 reveal" style="margin-top: 4rem;">
+                <h3 style="margin-bottom: 2rem; font-size: 1.5rem;" data-es="Educación & Certificaciones" data-en="Education & Certifications">Educación & Certificaciones</h3>
+                <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    
+                    <div class="degree-card glass-panel reveal">
+                        <div class="degree-preview-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.2rem;" data-es="Título Universitario" data-en="University Degree">Título Universitario</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;" data-es="Ingeniería en Sistemas Informáticos<br>Universidad de El Salvador (2026)" data-en="Systems Engineering<br>University of El Salvador (2026)">Ingeniería en Sistemas Informáticos<br>Universidad de El Salvador (2026)</p>
+                        
+                        <div style="display: flex; gap: 1rem; width: 100%;">
+                            <a href="mph6rqny-TITULO_PREGRADO.pdf" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem;" data-es="<i class='fas fa-eye'></i> Ver PDF" data-en="<i class='fas fa-eye'></i> View PDF">
+                                <i class="fas fa-eye"></i> Ver PDF
+                            </a>
+                            <a href="mph6rqny-TITULO_PREGRADO.pdf" download="Titulo_Ingenieria_Enmanuel_Henriquez.pdf" class="btn btn-outline" style="flex: 1; justify-content: center; font-size: 0.85rem;" data-es="<i class='fas fa-download'></i> Descargar" data-en="<i class='fas fa-download'></i> Download">
+                                <i class="fas fa-download"></i> Descargar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-4" style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                        <i class="fas fa-network-wired mb-3" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="margin-bottom: 0.5rem;" data-es="Redes & Infraestructura" data-en="Networks & Infrastructure">Redes & Infraestructura</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;" data-es="Técnico instalador de cableado estructurado y redes de datos." data-en="Certified technician in structured cabling and data networks.">Técnico instalador de cableado estructurado y redes de datos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-es="Proyectos <span class='text-gradient'>Destacados</span>" data-en="Featured <span class='text-gradient'>Projects</span>">Proyectos <span class="text-gradient">Destacados</span></h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card glass-panel reveal">
+                    <div class="project-img"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="project-info">
+                        <h3 data-es="Conexión Nacional Platzi" data-en="Platzi National Connection">Conexión Nacional Platzi</h3>
+                        <p data-es="Proyecto de conectividad nacional en El Salvador. Enfoque en innovación tecnológica nacional, infraestructura digital y transformación tecnológica." data-en="National connectivity project in El Salvador. Focused on national tech innovation, digital infrastructure, and technological transformation.">Proyecto de conectividad nacional en El Salvador. Enfoque en innovación tecnológica nacional, infraestructura digital y transformación tecnológica.</p>
+                        <div class="project-tags">
+                            <span data-es="Infraestructura Digital" data-en="Digital Infrastructure">Infraestructura Digital</span>
+                            <span data-es="Innovación Nacional" data-en="National Innovation">Innovación Nacional</span>
+                            <span data-es="Transformación" data-en="Transformation">Transformación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-panel reveal" style="transition-delay: 0.1s;">
+                    <div class="project-img"><i class="fas fa-globe-americas"></i></div>
+                    <div class="project-info">
+                        <h3>Simple SV (UI & QA)</h3>
+                        <p data-es="Diseño de interfaces y validación de calidad para plataforma gubernamental de simplificación de trámites, impactando a nivel nacional." data-en="Interface design and quality validation for a government platform simplifying administrative procedures nationwide.">Diseño de interfaces y validación de calidad para plataforma gubernamental de simplificación de trámites, impactando a nivel nacional.</p>
+                        <div class="project-tags">
+                            <span>UX/UI</span>
+                            <span data-es="Sistemas Gubernamentales" data-en="Gov Systems">Sistemas Gubernamentales</span>
+                            <span>QA Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-panel reveal" style="transition-delay: 0.2s;">
+                    <div class="project-img"><i class="fas fa-layer-group"></i></div>
+                    <div class="project-info">
+                        <h3>Design Systems Prototyping</h3>
+                        <p data-es="Creación de componentes avanzados, variables y auto-layouts en Figma para estandarizar interfaces de innovación." data-en="Creation of advanced components, variables, and auto-layouts in Figma to standardize innovation interfaces.">Creación de componentes avanzados, variables y auto-layouts en Figma para estandarizar interfaces de innovación.</p>
+                        <div class="project-tags"><span>Figma Avanzado</span><span>Design System</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-es="Iniciar <span class='text-gradient'>Conexión</span>" data-en="Start <span class='text-gradient'>Connection</span>">Iniciar <span class="text-gradient">Conexión</span></h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;" data-es="Hablemos de Tecnología" data-en="Let's Talk Tech">Hablemos de Tecnología</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-es="Si buscas un perfil híbrido capaz de diseñar, administrar servidores, asegurar infraestructura y liderar desarrollos, conecta conmigo." data-en="If you're looking for a hybrid profile capable of designing, managing servers, securing infrastructure, and leading developments, connect with me.">Si buscas un perfil híbrido capaz de diseñar, administrar servidores, asegurar infraestructura y liderar desarrollos, conecta conmigo.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/enmanuel-henriquez-8b85a4277/?utm_source=chatgpt.com" target="_blank" class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/bekettV?utm_source=chatgpt.com" target="_blank" class="social-btn github">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub Repository</span>
+                        </a>
+                        <a href="https://www.facebook.com/search/top?q=Enmanuel%20Henriquez" target="_blank" class="social-btn facebook">
+                            <i class="fab fa-facebook"></i>
+                            <span data-es="Facebook (Enmanuel Henriquez)" data-en="Facebook (Enmanuel Henriquez)">Facebook (Enmanuel Henriquez)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-4 reveal" style="padding: 2.5rem; transition-delay: 0.2s;">
+                    <form class="contact-form" onsubmit="event.preventDefault(); window.open('https://wa.me/50375788942?text=Hola%20Enmanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte.', '_blank');">
+                        <div class="input-group">
+                            <label data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label>
+                            <input type="text" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div class="input-group">
+                            <label data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</label>
+                            <input type="email" placeholder="correo@empresa.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" data-es="Enviar Mensaje vía WhatsApp <i class='fab fa-whatsapp'></i>" data-en="Send Message via WhatsApp <i class='fab fa-whatsapp'></i>">
+                            Enviar Mensaje vía WhatsApp <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem;">
+        <div class="container">
+            <p data-es="&copy; 2024 Enmanuel Alexander Henríquez Hernández. Transformando el futuro digital." data-en="&copy; 2024 Enmanuel Alexander Henríquez Hernández. Transforming the digital future.">&copy; 2024 Enmanuel Alexander Henríquez Hernández. Transformando el futuro digital.</p>
+        </div>
+    </footer>
+
+    <script src="js/animaciones.js"></script>
 </body>
 </html>
